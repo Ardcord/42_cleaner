@@ -2,7 +2,6 @@
 
 Ce script Bash vous permet de nettoyer divers fichiers et caches inutiles sur votre système Linux (Ubuntu) sans nécessiter de droits administrateurs. Il a été initialement développé par [ombhd](https://github.com/ombhd) et adapté pour Linux (Ubuntu) par [tvanbael](https://github.com/tvanbael).
 
-![Banner](banner.png)
 
 ## Fonctionnalités
 
@@ -12,6 +11,7 @@ Ce script Bash vous permet de nettoyer divers fichiers et caches inutiles sur vo
 - Nettoyage des caches de Slack, VSCode, Discord, Chrome, Mozilla, et d'autres applications
 - Mise à jour du script
 - Affichage de l'espace de stockage disponible avant et après le nettoyage
+
 
 ## Utilisation
 
@@ -39,6 +39,7 @@ Ce script Bash vous permet de nettoyer divers fichiers et caches inutiles sur vo
     ./Cleaner_42.sh
     ```
 
+
 ## Options
 
   - Utilisez l'option '-p' ou '--print' pour afficher les fichiers supprimés.
@@ -52,6 +53,21 @@ Ce script Bash vous permet de nettoyer divers fichiers et caches inutiles sur vo
     ```bash
     ./Cleaner_42.sh update
     ```
+
+
+## Restaurer la Version Originale
+
+Si vous souhaitez restaurer la version originale du script de `ombhd`, vous pouvez utiliser l'option `-r` ou `--origin` :
+
+   ```bash
+   ./Cleaner_42.sh origin
+   ```
+Cela restaurera la version originale du script à partir du référentiel GitHub de ombhd et la copiera dans votre répertoire personnel.
+
+Notez que cela écrasera les modifications locales que vous avez apportées au script. Si vous avez effectué des modifications personnelles, assurez-vous de les sauvegarder ailleurs avant d'utiliser cette option.
+
+Si vous préférez, vous pouvez également accéder directement au profil GitHub de [ombhd](https://github.com/ombhd) pour obtenir la version originale.
+
 
 ## Avertissement
 
