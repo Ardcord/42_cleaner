@@ -4,14 +4,52 @@
 # Modified for 42 Linux by tvanbael
 
 # Affichage du banner
+clear
 echo -e "\n"
 echo -e "      █▀▀ █▀▀ █░░ █▀▀ ▄▀█ █▄░█"
 echo -e "      █▄▄ █▄▄ █▄▄ ██▄ █▀█ █░▀█"
 echo -e "\n"
 sleep 2
 
+# Help menu
+
+if [ "$arg" == "-h" ] || [ "$arg" == "--help" ]; then
+    echo -e "\nUsage: ./Cleaner_42.sh [options]\n"
+    echo "Options:"
+    echo "  -h, --help    Affiche ce message d'aide"
+    echo "  -o, --origin  Restaure la version originale de CCLEAN depuis le GitHub [OMBHD]"
+    echo "  -p, --print   Affiche les fichiers supprimés pendant le nettoyage"
+    echo "  -u, --update  Met à jour CCLEAN vers la dernière version depuis GitHub"
+    echo -e "\nExemples:"
+    echo "./Cleaner_42.sh -p     # Exécute CCLEAN en affichant les fichiers supprimés"
+    echo "./Cleaner_42.sh -o     # Restaure la version originale de CCLEAN depuis GitHub"
+    echo "./Cleaner_42.sh -u     # Met à jour CCLEAN vers la dernière version depuis le GitHub [OMBHD]"
+    exit 0
+fi
+
+
+# Restauration de la version originale
+
+if [ "$arg" == "-o" ] || [ "$1" == "origin" ]; then
+    # Restauration de la version originale
+    tmp_dir=".cclean_tmp_dir"
+	if ! git clone --quiet https://github.com/ombhd/Cleaner_42.git "$HOME"/"$tmp_dir" &>/dev/null; then
+        sleep 0.5
+        echo -e "\033[31m\n -- Impossible de restaurer la version OMBHD CCLEAN ! :( --\033[0m"
+        echo -e "\033[33m\n -- Rendez vous directement sur son github --\n\033[0m"
+		echo -e "\033[33m\n --   -->  https://github.com/ombhd/  <--  --\n\033[0m"
+        exit 1
+    fi
+	sleep 1
+	cp -f "$HOME"/"$tmp_dir"/Cleaner_42.sh "$HOME" &>/dev/null
+    /bin/rm -rf "$HOME"/"${tmp_dir:?}" &>/dev/null
+
+    echo -e "\033[33m\n -- Version originale restaurée --\n\033[0m"
+    exit 0
+fi
+
 # Mise à jour
-if [ "$1" == "update" ]; then
+if [ "$arg" == "-u" ] || [ "$1" == "update" ]; then
     tmp_dir=".cclean_tmp_dir"
     if ! git clone --quiet https://github.com/Ardcord/42_cleaner.git "$HOME"/"$tmp_dir" &>/dev/null; then
         sleep 0.5
