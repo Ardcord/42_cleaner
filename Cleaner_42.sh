@@ -152,7 +152,9 @@ function clean {
     rm -rf "$HOME"/.cocoapods.42_cache_bak*
 
     # Corbeille
-    rm -rf "$HOME"/.Trash/*
+    rm -rf "$HOME"/.Trash/
+    rm -rf "$HOME"/.local/share/Trash/info/
+    rm -rf "$HOME"/.local/share/Trash/files/*
 
     # Caches généraux
     # Donnez des droits d'accès aux caches Homebrew, afin que le script puisse les supprimer
@@ -187,10 +189,6 @@ function clean {
     # Fichiers liés à la piscine
     rm -rf "$HOME"/Desktop/Piscine\ Rules\ *.mp4
     rm -rf "$HOME"/Desktop/PLAY_ME.webloc
-    rm -rf "$HOME"/.local/share/Trash/info/
-    rm -rf "$HOME"/.local/share/Trash/files/
-    echo "fin"
-
 
     echo -ne "\033[0m"
 }
