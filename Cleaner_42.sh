@@ -120,7 +120,7 @@ if [[ "$1" == "-p" || "$1" == "--print" ]]; then
     should_log=1
 fi
 
-function rm -rf {
+function clean_glob {
     # Ne faites rien si le nombre d'arguments est zéro (glob non trouvé).
     if [ -z "$1" ]; then
         return 0
@@ -146,49 +146,49 @@ function clean {
     echo -ne "\033[38;5;208m"
 
     # Caches 42
-    rm -rf "$HOME"/Library/*.42*
-    rm -rf "$HOME"/*.42*
-    rm -rf "$HOME"/.zcompdump*
-    rm -rf "$HOME"/.cocoapods.42_cache_bak*
+    clean_glob "$HOME"/Library/*.42*
+    clean_glob "$HOME"/*.42*
+    clean_glob "$HOME"/.zcompdump*
+    clean_glob "$HOME"/.cocoapods.42_cache_bak*
 
     # Corbeille
-    rm -rf "$HOME"/.Trash/
-    rm -rf "$HOME"/.local/share/Trash/info/
-    rm -rf "$HOME"/.local/share/Trash/files/*
+    clean_glob "$HOME"/.Trash/
+    clean_glob "$HOME"/.local/share/Trash/info/
+    clean_glob "$HOME"/.local/share/Trash/files/*
 
     # Caches généraux
     # Donnez des droits d'accès aux caches Homebrew, afin que le script puisse les supprimer
     chmod -R 777 "$HOME"/Library/Caches/Homebrew &>/dev/null
-    rm -rf "$HOME"/Library/Caches/*
-    rm -rf "$HOME"/Library/Application\ Support/Caches/*
+    clean_glob "$HOME"/Library/Caches/*
+    clean_glob "$HOME"/Library/Application\ Support/Caches/*
 
     # Caches de Slack, VSCode, Discord et Chrome
-    rm -rf "$HOME"/Library/Application\ Support/Slack/Service\ Worker/CacheStorage/*
-    rm -rf "$HOME"/Library/Application\ Support/Slack/Cache/*
-    rm -rf "$HOME"/Library/Application\ Support/discord/Cache/*
-    rm -rf "$HOME"/Library/Application\ Support/discord/Code\ Cache/js*
-    rm -rf "$HOME"/Library/Application\ Support/discord/Crashpad/completed/*
-    rm -rf "$HOME"/Library/Application\ Support/Code/Cache/*
-    rm -rf "$HOME"/Library/Application\ Support/Code/CachedData/*
-    rm -rf "$HOME"/Library/Application\ Support/Code/Crashpad/completed/*
-    rm -rf "$HOME"/Library/Application\ Support/Code/User/workspaceStorage/*
-    rm -rf "$HOME"/Library/Application\ Support/Google/Chrome/Profile\ [0-9]/Service\ Worker/CacheStorage/*
-    rm -rf "$HOME"/Library/Application\ Support/Google/Chrome/Default/Service\ Worker/CacheStorage/*
-    rm -rf "$HOME"/Library/Application\ Support/Google/Chrome/Profile\ [0-9]/Application\ Cache/*
-    rm -rf "$HOME"/Library/Application\ Support/Google/Chrome/Default/Application\ Cache/*
-    rm -rf "$HOME"/Library/Application\ Support/Google/Chrome/Crashpad/completed/*
+    clean_glob "$HOME"/Library/Application\ Support/Slack/Service\ Worker/CacheStorage/*
+    clean_glob "$HOME"/Library/Application\ Support/Slack/Cache/*
+    clean_glob "$HOME"/Library/Application\ Support/discord/Cache/*
+    clean_glob "$HOME"/Library/Application\ Support/discord/Code\ Cache/js*
+    clean_glob "$HOME"/Library/Application\ Support/discord/Crashpad/completed/*
+    clean_glob "$HOME"/Library/Application\ Support/Code/Cache/*
+    clean_glob "$HOME"/Library/Application\ Support/Code/CachedData/*
+    clean_glob "$HOME"/Library/Application\ Support/Code/Crashpad/completed/*
+    clean_glob "$HOME"/Library/Application\ Support/Code/User/workspaceStorage/*
+    clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Profile\ [0-9]/Service\ Worker/CacheStorage/*
+    clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Default/Service\ Worker/CacheStorage/*
+    clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Profile\ [0-9]/Application\ Cache/*
+    clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Default/Application\ Cache/*
+    clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Crashpad/completed/*
 
     # Fichiers .DS_Store
     find "$HOME"/Desktop -type f -name .DS_Store -exec /bin/rm -f {} \;
 
     # Fichiers temporaires téléchargés avec les navigateurs
-    rm -rf "$HOME"/.mozilla/firefox/*/cache/*
-    rm -rf "$HOME"/.vscode-server/bin/*/cache/*
-    rm -rf "$HOME"/.vscode-server/extensions/*/cache/*
+    clean_glob "$HOME"/.mozilla/firefox/*/cache/*
+    clean_glob "$HOME"/.vscode-server/bin/*/cache/*
+    clean_glob "$HOME"/.vscode-server/extensions/*/cache/*
 
     # Fichiers liés à la piscine
-    rm -rf "$HOME"/Desktop/Piscine\ Rules\ *.mp4
-    rm -rf "$HOME"/Desktop/PLAY_ME.webloc
+    clean_glob "$HOME"/Desktop/Piscine\ Rules\ *.mp4
+    clean_glob "$HOME"/Desktop/PLAY_ME.webloc
 
     echo -ne "\033[0m"
 }
