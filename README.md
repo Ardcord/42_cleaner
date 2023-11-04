@@ -3,7 +3,7 @@
 Ce script Bash vous permet de nettoyer divers fichiers et caches inutiles sur votre système Linux (Ubuntu) sans nécessiter de droits administrateurs. Il a été initialement développé par [ombhd](https://github.com/ombhd) et adapté pour Linux (Ubuntu) par [tvanbael](https://github.com/tvanbael).
 
 
-## Fonctionnalités
+# Fonctionnalités
 
 - Nettoyage des caches 42
 - Vidage de la corbeille
@@ -13,7 +13,34 @@ Ce script Bash vous permet de nettoyer divers fichiers et caches inutiles sur vo
 - Affichage de l'espace de stockage disponible avant et après le nettoyage
 
 
-## Utilisation
+# Instalation
+
+## Version nomad
+
+   - Pour utiliser le cleaner sans instalation :
+
+   ```bash
+   bash -c "$(curl -fsSL -o "$HOME/Cleaner_42.sh" https://raw.githubusercontent.com/Ardcord/42_cleaner/main/Cleaner_42.sh)"
+   ```
+
+   - Si vous le souhaitez vous pourvez aussi le mettre manuellement en Alias avec la commande :
+   ```bash
+   echo '' >> ~/.zshrc && echo 'alias cclean="bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Ardcord/42_cleaner/main/Cleaner_42.sh)\""' >> ~/.zshrc
+   ```
+   et utiliser directement la commande suivante pour executer le script :
+   ```bash
+   cclean
+   ```
+
+
+## Vestion persistante :
+
+   ```bash
+   curl -o "$HOME/Cleaner_42.sh" https://raw.githubusercontent.com/Ardcord/42_cleaner/main/Cleaner_42.sh && chmod u+x ~/Cleaner_42.sh && ./Cleaner_42.sh
+   ```
+
+
+# Utilisation
 
 1. Clonez ce référentiel :
 
@@ -47,7 +74,7 @@ Dans le cas contraire vous pouvez aussi rajouter l'Alias a votre .zshrc avec cet
    ```
    
 
-## Options
+# Options
 
   - Utilisez l'option '-p' ou '--print' pour afficher les fichiers supprimés.
 
@@ -62,9 +89,9 @@ Dans le cas contraire vous pouvez aussi rajouter l'Alias a votre .zshrc avec cet
     ```
 
 
-## Restaurer la Version Originale
+# Restaurer la Version Originale
 
-Si vous souhaitez restaurer la version originale du script de `ombhd`, vous pouvez utiliser l'option `-r` ou `--origin` :
+Si vous souhaitez restaurer la version originale du script de `ombhd`, vous pouvez utiliser l'option `-o` ou `--origin` :
 
    ```bash
    ./Cleaner_42.sh origin
@@ -76,7 +103,7 @@ Notez que cela écrasera les modifications locales que vous avez apportées au s
 Si vous préférez, vous pouvez également accéder directement au profil GitHub de [ombhd](https://github.com/ombhd) pour obtenir la version originale.
 
 
-## Avertissement
+# Avertissement
 
 Ce script est destiné à être utilisé sur votre propre système et peut supprimer des fichiers de manière irréversible. Assurez-vous de comprendre ce que fait le script avant de l'exécuter.
 
