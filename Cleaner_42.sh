@@ -187,7 +187,7 @@ function clean {
     # Fichiers liés à la piscine
     clean_glob "$HOME"/Desktop/Piscine\ Rules\ *.mp4
     clean_glob "$HOME"/Desktop/PLAY_ME.webloc
-    clean_glob "$HOME"/.local/share/Trash/info/*
+    rm -rf "$HOME"/.local/share/Trash/info/*
     rm -rf "$HOME"/.local/share/Trash/files/.*
     echo "fin"
 
