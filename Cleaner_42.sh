@@ -15,12 +15,14 @@ sleep 2
 check_and_add_alias() {
     local config_file="$1"
     local alias_line="alias cclean='zsh ~/Cleaner_42.sh'"
+    local alias_nomad="alias cclean='bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ardcord/42_cleaner/main/Cleaner_42.sh)"'"
 
     # Vérifier si le fichier de configuration existe
     if [ -f "$config_file" ]; then
         # Vérifier si l'alias existe dans le fichier
         if grep -q "$alias_line" "$config_file"; then
             echo ""
+	elif grep -q "$alias_nonad" "$config_file"; then
         else
             # Ajouter l'alias à la fin du fichier
             echo "" >> "$config_file"
@@ -47,7 +49,7 @@ check_and_add_alias "$HOME/.bashrc"
 
 # Help menu
 
-if [ "$arg" == "-h" ] || [ "$arg" == "--help" ]; then
+if [ "$arg" == "-h" ] || [ "$arg" == "help" ] || [ "$arg" == "--help" ]; then
     echo -e "\nUsage: ./Cleaner_42.sh [options]\n"
     echo "Options:"
     echo "  -h, --help    Affiche ce message d'aide"
@@ -64,7 +66,7 @@ fi
 
 # Restauration de la version originale
 
-if [ "$arg" == "-o" ] || [ "$1" == "origin" ]; then
+if [ "$arg" == "-o" ] || [ "$1" == "origin" ] || [ "$1" == "--origin" ]; then
     # Restauration de la version originale
     tmp_dir=".cclean_tmp_dir"
 	if ! git clone --quiet https://github.com/ombhd/Cleaner_42.git "$HOME"/"$tmp_dir" &>/dev/null; then
@@ -83,7 +85,7 @@ if [ "$arg" == "-o" ] || [ "$1" == "origin" ]; then
 fi
 
 # Mise à jour
-if [ "$arg" == "-u" ] || [ "$1" == "update" ]; then
+if [ "$arg" == "-u" ] || [ "$1" == "update" ] || [ "$1" == "--update" ]; then
     tmp_dir=".cclean_tmp_dir"
     if ! git clone --quiet https://github.com/Ardcord/42_cleaner.git "$HOME"/"$tmp_dir" &>/dev/null; then
         sleep 0.5
