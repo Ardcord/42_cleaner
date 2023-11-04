@@ -23,6 +23,7 @@ check_and_add_alias() {
         if grep -q "$alias_line" "$config_file"; then
             echo ""
 	elif grep -q "$alias_nonad" "$config_file"; then
+ 	    echo""
         else
             # Ajouter l'alias à la fin du fichier
             echo "" >> "$config_file"
