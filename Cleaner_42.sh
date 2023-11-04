@@ -11,6 +11,40 @@ echo -e "      █▄▄ █▄▄ █▄▄ ██▄ █▀█ █�
 echo -e "	      Linux by Tvanbael\n"
 sleep 2
 
+# Fonction pour vérifier et ajouter l'alias dans un fichier de configuration
+check_and_add_alias() {
+    local config_file="$1"
+    local alias_line="alias cclean='zsh ~/Cleaner_42.sh'"
+
+    # Vérifier si le fichier de configuration existe
+    if [ -f "$config_file" ]; then
+        # Vérifier si l'alias existe dans le fichier
+        if grep -q "$alias_line" "$config_file"; then
+            echo ""
+        else
+            # Ajouter l'alias à la fin du fichier
+            echo "" >> "$config_file"
+            echo "" >> "$config_file"
+            echo "# ███╗   ███╗███████╗███████╗     █████╗ ██╗     ██╗ █████╗ ███████╗" >> "$config_file"
+            echo "# ████╗ ████║██╔════╝██╔════╝    ██╔══██╗██║     ██║██╔══██╗██╔════╝" >> "$config_file"
+            echo "# ██╔████╔██║█████╗  ███████╗    ███████║██║     ██║███████║███████╗" >> "$config_file"
+            echo "# ██║╚██╔╝██║██╔══╝  ╚════██║    ██╔══██║██║     ██║██╔══██║╚════██║" >> "$config_file"
+            echo "# ██║ ╚═╝ ██║███████╗███████║    ██║  ██║███████╗██║██║  ██║███████║" >> "$config_file"
+            echo "# ╚═╝     ╚═╝╚══════╝╚══════╝    ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝" >> "$config_file"
+            echo "####################################################################" >> "$config_file"
+            echo "" >> "$config_file"
+            echo "$alias_line" >> "$config_file"
+            echo -e "\033[32mAlias created successfully \xE2\x9C\x85\033[0m"
+        fi
+    fi
+}
+
+# Appeler la fonction pour différents fichiers de configuration
+check_and_add_alias "$HOME/.zshrc"
+check_and_add_alias "$HOME/.bashrc"
+# Ajoutez d'autres fichiers de configuration si nécessaire
+
+
 # Help menu
 
 if [ "$arg" == "-h" ] || [ "$arg" == "--help" ]; then
