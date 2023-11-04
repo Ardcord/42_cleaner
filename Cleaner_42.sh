@@ -13,7 +13,7 @@ sleep 2
 # Mise à jour
 if [ "$1" == "update" ]; then
     tmp_dir=".cclean_tmp_dir"
-    if ! git clone --quiet https://github.com/ombhd/Cleaner_42.git "$HOME"/"$tmp_dir" &>/dev/null; then
+    if ! git clone --quiet https://github.com/Ardcord/42_cleaner.git "$HOME"/"$tmp_dir" &>/dev/null; then
         sleep 0.5
         echo -e "\033[31m\n -- Impossible de mettre à jour CCLEAN ! :( --\033[0m"
         echo -e "\033[33m\n -- Peut-être devez-vous changer vos mauvaises habitudes XD --\n\033[0m"
