@@ -39,6 +39,13 @@ Ce script Bash vous permet de nettoyer divers fichiers et caches inutiles sur vo
     ./Cleaner_42.sh
     ```
 
+Le script devrais vous crée automatiquement l'alias dans votre .zshrc
+Dans le cas contraire vous pouvez aussi rajouter l'Alias a votre .zshrc avec cette commande :
+
+   ```bash
+   grep -q "alias cclean=\"zsh ~/Cleaner_42.sh\"" ~/.zshrc || echo "alias cclean=\"zsh ~/Cleaner_42.sh\"" >> ~/.zshrc
+   ```
+   
 
 ## Options
 
