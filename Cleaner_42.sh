@@ -8,7 +8,7 @@ clear
 echo -e "\n"
 echo -e "      █▀▀ █▀▀ █░░ █▀▀ ▄▀█ █▄░█"
 echo -e "      █▄▄ █▄▄ █▄▄ ██▄ █▀█ █░▀█"
-echo -e "\n"
+echo -e "	      Linux by Tvanbael\n"
 sleep 2
 
 # Help menu
